@@ -50,7 +50,7 @@ public final class SchemaInferenceUtil {
                         return RecordFieldType.DECIMAL.getDecimalDataType(value.length() - 1, value.length() - 1 - value.indexOf("."));
                     }
 
-                    if (doubleValue > Float.MAX_VALUE || doubleValue < Float.MIN_VALUE) {
+                    if (doubleValue > Float.MAX_VALUE || doubleValue < Float.MIN_VALUE || !String.valueOf(doubleValue).equals(String.valueOf((float) doubleValue))) {
                         return RecordFieldType.DOUBLE.getDataType();
                     }
 
